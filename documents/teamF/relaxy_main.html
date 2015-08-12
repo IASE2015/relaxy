@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<title>main</title>
+<script type="text/javascript" src="relaxy_main.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+	window.fbAsyncInit = function() {
+		FB.init({
+		appId : '512120178956100',
+		xfbml : true,
+		version : 'v2.4'
+		});
+	};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "http://connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<style type="text/css">
+.FbBtn {
+    background-color: #3b5998;
+    height: 45px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.FbBtn:after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    background-image: url({ダウンロードしたfの画像を保存した場所});
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+.FbBtnLabel {
+    color: #ffffff;
+    position: relative;
+    top: 13px;
+    text-align: center;
+    margin: 0 20px 0 50px;
+}
+#mordal{
+	background :	#ffffcc;
+	z-index		:	2; 
+	position 	:	fixed;
+	padding 	:	20px;
+	text-align: center;
+	margin-top	:	-20px;
+	margin-left	:	-20px;
+	top 	:	50%;
+	left	:	50%;
+}
+#mordal-over{
+	z-index 	:	1;
+	position 	:	fixed;
+	top 	:	0;
+	left 	:	0;
+	width 	:	100%;
+	height 	:	120%;
+	background-color :	rgba(255,255,255,0.75);
+}
+#footer{
+  	background-color 	:	#ff9900;
+  	position 	:	absolute;
+  	width 	:	100%;
+  	padding 	:	10px 0;
+  	bottom 		:	0;
+}
+#header{
+	background-color 	:	#ff9900;
+  	position 	:	absolute;
+  	width 	:	100%;
+  	padding 	:	10px 0;
+  	height 	:	50px;
+  	top 	:	0;
+}
+#side_menu{
+	background-color: #bee0ce;
+	position : absolute;
+	width 	:	120px;
+	height 	:	90%;
+	top 	:	70px; 
+	bottom 	:	0;
+}
+.side_item{
+	background-color: #ffcccc;
+	width 	:	100px;
+	position-top 	:	100px;
+	position 	:	relative;
+ 
+}
+</style>
+</head>
+<body onload="main()">
+		<div id="header" class="header me"> 
+			<div class="head-logo">
+				<img id="logo" src=""></img>
+			</div>
+			<div class="head-acct"></div>
+			<div class="head-search">
+				<input id="search" value="" type="search" style="float:right"></img>
+			</div>
+		</div>
+		<div class="main x-closed  me">
+			<div id="side_menu" class="side_menu">
+				<div onclick="onClickSlider()">メニュー</div>
+				<img src=""></img>
+				<div id="archive" class="menu_item">過去の予約</div>
+				<div id="favorite" class="menu_item">お気に入り</div>
+				<div id="history" class="menu_item">閲覧履歴</div>
+				<div id="setting" class="menu_item">設定</div>
+			</div>
+			<div id="main_content">
+
+			</div>
+		</div>
+		<div id="mordal" class="mordal">
+			<div id="user_type" class="first">
+				<button id="practitioner" onClick="selectType(false)">施術者として登録</button>
+				<button id="user" onClick="selectType(true)">利用者として登録</button>
+			</div>
+			<div id="login" class="used" style="display:none">
+				<div id="FbBtn" class="FbBtn FbBtnLabel" onclick="FB.login()">ログインする</div>
+				<div id="type_back" onclick="backUType()" style="margin:20px">←戻る</div>
+			</div>
+		</div>
+		<div id="fb-root"></div>
+	<div id="footer" class="me"style="background-color:#ffcc22"></div>
+
+</body>
+</html>
