@@ -1,7 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<title>施術者詳細ページ</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="practitioner_detail.js"></script>
+<style type="text/css">
+	#favorite{
+		background-color 	:	#ffff66;
+		width 	:	300px;
+		display 	:	inline;
+		padding 	:	3px;
+	}
+	#message div{
+		background-color	:	#66ccff; 
+		width 	:	300px;
+		display 	:	inline;
+		padding 	:	3px;
+	}
+	#time{
+
+	}
+	#work_style{
+		padding 	:	10px;
+		margin-bottom 	:	10px;
+		border 		:	1px solid #333fff;
+		border-radius:	10px; 
+
+	}
+	#qualification{
+
+	}
+	.tag{
+		display 	:	inline;
+		padding 	:	3px;
+	}
+	#footer{
+  	background-color 	:	#ff9900;
+  	position 	:	absolute;
+  	width 	:	100%;
+  	padding 	:	10px 0;
+  	bottom 		:	0;
+	}
+	#header{
+	background-color 	:	#ff9900;
+  	position 	:	absolute;
+  	width 	:	100%;
+  	padding 	:	10px 0;
+  	height 	:	50px;
+	}
+</style>
 </head>
-<body>
+<body onload="main()">
+	<div class="side-menu" id="side_menu">
+				<img src="" onclick="onMenuSlider()"></img>
+	</div>
+	<div id="detail">
+		<div id="icon"><img id="icon_img"></div>
+		<div id="name"></div>
+		<div id="birth"></div>
+		<div id="qualification">資格・</div>
+		<div id="tag_list"><div class="tag">タグ</div></div>
+		<div id="intro"></div>
+		<div id="course">コース一覧
+		</div>
+		<div id="price">
+			<div id="30"></div>
+			<div id="60"></div>
+			<div id="120"></div>
+			<div id="per10"></div>
+		</div>
+		<div id="work_style">
+			<div id="style">施術形態</div>
+			<div id="place">場所</div>
+			<div id="time">
+				<div id="response_time">施術日時</div>
+			</div>
+		</div>
+		<div id="favorite">お気に入り</div>
+		<div id="message"><div id="sendMsg">メッセージを送る</div></div>
+	</div>
 </body>
 </html>
