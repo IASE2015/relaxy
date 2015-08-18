@@ -3,7 +3,7 @@ var is_used = false;
 
 var config = {
 	extend_width	: 120,
-	retracted_width 	: 80,
+	retracted_width 	: 20,
 	side__html 	: String()
 				+ '<div id="archive" class="menu_item">過去の予約</div>'
 				+ '<div id="favorite" class="menu_item">お気に入り</div>'
@@ -26,14 +26,13 @@ var config = {
 var $side_menu;
 
 function main(){
-	/*if(!is_used){
+	if(!is_used){
 		mordalShow();
 	}
 	else{
 		mordalHide();
 	}
 	$(window).resize(centeringMordal());
-	*/
 	setList();
 }
 function selectType(is_user){//p->false u->true
@@ -95,8 +94,8 @@ function mordalHide(){
 	});
 }
 function setList(){
-	$("#main_content").append(list_html);
-
+	$("#main_content").append($(config.list_html));
+	console.log("a");
 
 }
 function backUType(){
