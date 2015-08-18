@@ -2,7 +2,7 @@ var is_login = false;
 var is_used = false;
 
 var config = {
-	extend_width	: 120,
+	extend_width	: 100,
 	retracted_width 	: 20,
 	side__html 	: String()
 				+ '<div id="archive" class="menu_item">過去の予約</div>'
@@ -17,6 +17,7 @@ var config = {
 				+ '<div class="qua">資格</div>'
 				+ '<div class="price dt">値段</div>'
 				+ '<div class="time dt">時間</div>'
+				+ '<div class="detail">詳しく見る</div>'
 				+ '</div>'
 	/*list_css 	: String()
 				+ '{ border-radius:5px;',*/
@@ -95,7 +96,25 @@ function mordalHide(){
 }
 function setList(){
 	$("#main_content").append($(config.list_html));
-	console.log("a");
+	$('.list_item').css({
+		'border-radius':'5px',
+		'border' : 'solid 1px #999999',
+		'margin' : '3px',
+		'width'  : '150px'
+	});
+	$('.price').css({
+		'color' 	: "#888888", 
+		'float' 	: "left",
+
+	});
+	$('.time').css({
+		'color' 	: "#888888", 
+				'marign' 	: "3px" 
+	});
+	$('.detail').css({
+		'border-radius' 	: "#888888", 
+		'position' : 'relative'
+	});
 
 }
 function backUType(){
