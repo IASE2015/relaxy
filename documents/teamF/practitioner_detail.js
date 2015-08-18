@@ -52,8 +52,8 @@ function reBindClickMsg(){
 }
 function addMsgForm(){
 	reBindClickMsg();
-	$("#detail").append(config.msg_html);
-	$("")
+	$("#message").before(config.msg_html);
+	$("#sendMsg").text('この内容でメッセージを送る');
 }
 function toggleMenu(){
 	var menu_width = $("#side_menu").width();

@@ -50,6 +50,10 @@
   	padding 	:	10px 0;
   	height 	:	50px;
 	}
+	#main{
+		position: absolute;
+		margin: 100px;
+	}
 </style>
 </head>
 <body onload="main()">
@@ -65,30 +69,33 @@
 	<div class="side-menu" id="side_menu">
 				<img src="" onclick="onMenuSlider()"></img>
 	</div>
-	<div id="detail">
-		<div id="icon"><img id="icon_img"></div>
-		<div id="name"></div>
-		<div id="birth"></div>
-		<div id="qualification">資格・</div>
-		<div id="tag_list"><div class="tag">タグ</div></div>
-		<div id="intro"></div>
-		<div id="course">コース一覧
-		</div>
-		<div id="price">
-			<div id="30"></div>
-			<div id="60"></div>
-			<div id="120"></div>
-			<div id="per10"></div>
-		</div>
-		<div id="work_style">
-			<div id="style">施術形態</div>
-			<div id="place">場所</div>
-			<div id="time">
-				<div id="response_time">施術日時</div>
+	<div id="main">
+		<div id="detail">
+			<div id="icon"><img id="icon_img"></div>
+			<div id="name"></div>
+			<div id="birth"></div>
+			<div id="qualification">資格・</div>
+			<div id="tag_list"><div class="tag">タグ</div></div>
+			<div id="intro"></div>
+			<div id="course">コース一覧
 			</div>
+			<div id="price">
+				<div id="30"></div>
+				<div id="60"></div>
+				<div id="120"></div>
+				<div id="per10"></div>
+			</div>
+			<div id="work_style">
+				<div id="style">施術形態</div>
+				<div id="place">場所</div>
+				<div id="time">
+					<div id="response_time">施術日時</div>
+				</div>
+			</div>
+			<div id="favorite">お気に入り</div>
+			<div id="message"><div id="sendMsg">メッセージを送る</div></div>
 		</div>
-		<div id="favorite">お気に入り</div>
-		<div id="message"><div id="sendMsg">メッセージを送る</div></div>
 	</div>
+	<div id="footer" class="me"style="background-color:#ffcc22"></div>
 </body>
 </html>
