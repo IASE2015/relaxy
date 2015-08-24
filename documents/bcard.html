@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head onload="main()">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<title>mycard</title>
+	<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script  type="text/javascript" src="bcard.js"></script>
+	<script  type="text/javascript" src="jquery.min.js"></script>
+	<script  type="text/javascript" src="jquery-ui.min.js"></script>
+	<style type="text/css">
+
+	</style>
+</head>
+
+<body onload="main()">
+		<div id="screen" style="scroll:true;">
+			<canvas id="mycanvas" width="700" height="450"></canvas>
+		</div>
+		<div id="ws"></div>
+		<div id="help"></div>
+	<form id="fm">
+			<input id="x" type="text">
+		    <select name="font" id="fonts" onchange="setFSample()">
+	            <option value="KozMinPro-Regular" label="MS Pゴシック">M Pゴシック</option>
+	            <option value="KozMinPro">red</option>
+	            <option value="KozMinPro-Medium">小塚明朝</option>
+	            <option value="KozGoPro-Regular" label="小塚ゴシックPro-R">小塚ゴシックPro-R</option>
+	            <option value="KozGoPro">red</option>
+	            <option value="KozMinGo-Medium">小塚ゴシック</option>
+        	</select>
+        	<input type="button" class="in" onClick="initContext()" value="文字"></button>
+        	<div id="color">
+        		<!--<div id="rgb" style="border:2px solid #333fff;border-radius:5px;padding:3px;display:inline;">
+	        		R:<input type="text" id="r" value="255" class="color"  style="width:25px" onchange="setColor(true)">
+	        		G:<input type="text" id="g" value="255" class="color"  style="width:25px" onchange="setColor(true)">
+	        		B:<input type="text" id="b" value="255" class="color"  style="width:25px" onchange="setColor(true)">
+	        	</div>-->
+        		<div id="cmyk" class="in" style="padding:3px;display:inline;">
+	        		C:<input type="text" id="c" value="0" class="color" onchange="setColor(false)" style="width:25px">%
+	        		M:<input type="text" id="m" value="0" class="color" onchange="setColor(false)" style="width:25px">%
+	        		Y:<input type="text" id="ye" value="0" class="color" onchange="setColor(false)" style="width:25px">%
+	        		K:<input type="text" id="k" value="0" class="color" onchange="setColor(false)" style="width:25px">%
+        		</div>
+        		<canvas id="cResult" style="width:50px;height:50px;border:1px solid;">色見本</canvas>
+        	</div>
+		<div>
+			<input type="button"  onClick="back()" value="背景の色を決める" style="border:1px solid;">
+			<input type="button"  id="rectangle" onclick="addRect()" class="draw" value="四角□を書く">
+				<div id="length">
+					幅：<input type="text" id="width" style="width:40px" onchange="setLength(true)" value="100">
+					高さ：<input type="text" id="height" style="width:40px" onchange="setLength(false)" value="100">
+					<!--<input type="checkbox" id="isC" value="" checked="checked">縦横を同じ長さにする-->
+				</div>
+			</div>
+			<input type="button" onClick="addEllipse()" value="丸○を書く" class="draw">
+			<!--<input type="button"  id="star" onclick="addStar()" class="draw" value="星☆を書く">-->
+				<div id="setting_star" style="display:none;">
+					外半径<input type="text" id="RA" >
+					内半径<input type="text" id="ra" >
+					角の個数<input type="text" id="n" >
+				</div>
+			</div>
+			<div id="bezier" onclick="setBezier()">曲線を書く</div>
+			
+			<div id="rotate">
+				回転角度<input type="text" id="angle" value="0" onchange="setRotate()" style="width:25px"></div>
+		</div>
+        	
+        	
+	<div id="con" rows="20" cols="50" name="next"></div>
+	</form>
+	<input type="button" onClick="window.print()" value="プリンターで印刷する">
+	<input type="button" onClick="getPosition()" value="Adobe Illustrator用ファイルにする">
+	<a id="a" href=""></a>
+</body>
+</html>
